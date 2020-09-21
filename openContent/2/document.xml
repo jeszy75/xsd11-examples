@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:a="http://example/annotation"
+    xsi:noNamespaceSchemaLocation="document.xsd">
+
+    <title>The title of the document</title>
+
+    <a:comment type="important" author="jeszy">Do not forget to change document title!</a:comment>
+
+    <section>
+        <title>Section 1</title>
+        <para>Nulla eu venenatis dolor.Sed nibh felis, feugiat quis ornare sit amet, volutpat nec
+            neque. <link url="http://www.w3.org/TR/xmlschema-1/"/> Pellentesque semper, nibh id
+            rhoncus tincidunt, risus risus pellentesque leo, facilisis iaculis ante nisl in
+            ligula <link url="http://www.crummy.com/software/BeautifulSoup/">
+                <a:comment type="note">Link suggested by Laci.</a:comment></link>.</para>
+        <para>Morbi rhoncus sapien id magna consectetur laoreet. Ut pellentesque fringilla
+            ullamcorper.Curabitur posuere luctus nisl at commodo. Nulla sit amet tortor turpis, ut
+            ornare lectus. <a:comment author="jeszy">OMG!</a:comment>
+            Donec quam nulla, egestas quis pretium sed, accumsan lobortis nunc.
+            Vestibulum tincidunt dapibus lectus, sed luctus purus imperdiet vitae.</para>
+    </section>
+
+    <section>
+        <a:comment type="warning" author="jeszy" date="2012-10-05">The section may contain inaccurate or
+            incorrect information.</a:comment>
+        <title>Section 2</title>
+        <para>Nulla gravida blandit erat, eu viverra neque elementum a. Cras lacinia semper dapibus.
+            In nec odio dignissim erat posuere iaculis vel ut leo. Sed eget ipsum metus. Vestibulum
+            luctus est non neque placerat imperdiet.</para>
+    </section>
+
+</document>

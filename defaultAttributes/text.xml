@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="text.xsd" xml:lang="en">
+
+    <para xml:lang="hu">Ez magyarul van<emoticon name="smiley"/></para>
+
+    <para>This is in English.</para>
+
+</text>

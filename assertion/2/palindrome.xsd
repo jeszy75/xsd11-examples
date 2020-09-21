@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:simpleType name="palindromeString">
+        <xs:restriction base="xs:string">
+            <xs:assertion test="(replace($value, '[\s\p{P}]', '') => lower-case()) eq (replace($value, '[\s\p{P}]', '') => lower-case() => string-to-codepoints() => reverse() => codepoints-to-string())"The XPath parser is not configured to allow use of XPath 3.1 syntax/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="palindrome" type="palindromeString"/>
+
+</xs:schema>

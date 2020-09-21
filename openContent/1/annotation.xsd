@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:a="http://example/annotation"
+    targetNamespace="http://example/annotation">
+
+    <xs:element name="comment">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute name="type" type="a:commentType" use="optional" default="note"/>
+                    <xs:attribute name="author" type="xs:string" use="optional"/>
+                    <xs:attribute name="date" type="xs:date" use="optional"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="commentType">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="important"/>
+            <xs:enumeration value="note"/>
+            <xs:enumeration value="warning"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

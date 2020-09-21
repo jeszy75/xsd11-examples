@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+    datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+    <start>
+        <ref name="colors"/>
+    </start>
+    <define name="colors">
+        <element name="colors">
+            <oneOrMore>
+                <ref name="color"/>
+            </oneOrMore>
+        </element>
+    </define>
+    <define name="color">
+        <element name="color">
+            <choice>
+                <attribute name="name">
+                    <choice>
+                        <value>black</value>
+                        <value>blue</value>
+                        <value>green</value>
+                        <value>red</value>
+                        <value>yellow</value>
+                        <value>white</value>
+                    </choice>
+                </attribute>
+                <group>
+                    <attribute name="r">
+                        <data type="unsignedByte"/>
+                    </attribute>
+                    <attribute name="g">
+                        <data type="unsignedByte"/>
+                    </attribute>
+                    <attribute name="b">
+                        <data type="unsignedByte"/>
+                    </attribute>
+                </group>
+            </choice>
+        </element>
+    </define>
+</grammar>

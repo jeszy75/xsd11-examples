@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+    datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+    <start>
+        <ref name="Publications"/>
+    </start>
+    <define name="Publications">
+        <element name="Publications">
+            <zeroOrMore>
+                <ref name="Publication"/>
+            </zeroOrMore>
+        </element>
+    </define>
+    <define name="Publication">
+        <element name="Publication">
+            <element name="title">
+                <text/>
+            </element>
+            <element name="publisher">
+                <text/>
+            </element>
+            <choice>
+                <group>
+                    <attribute name="type">
+                        <value>Book</value>
+                    </attribute>
+                    <ref name="isbn"/>
+                </group>
+                <group>
+                    <attribute name="type">
+                        <value>Periodical</value>
+                    </attribute>
+                    <ref name="issn"/>
+                </group>
+            </choice>
+        </element>
+    </define>
+    <define name="isbn">
+        <element name="isbn">
+            <data type="string">
+                <param name="pattern">\d{13}</param>
+            </data>
+        </element>
+    </define>
+    <define name="issn">
+        <element name="issn">
+            <data type="string">
+                <param name="pattern">\d{4}-\d{3}[\dX]</param>
+            </data>
+        </element>
+    </define>
+</grammar>

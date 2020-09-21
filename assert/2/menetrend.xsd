@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="járat">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="megállóhely" minOccurs="2" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:token">
+                                <xs:attribute name="menetidő" type="xs:nonNegativeInteger" use="required"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="szám" type="xs:string" use="required"/>
+            <xs:assert test="megállóhely[1]/@menetidő eq 0"/>
+            <xs:assert test="not(megállóhely[@menetidő gt following-sibling::megállóhely[1]/@menetidő])"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

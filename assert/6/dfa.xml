@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<dfa>
+    <symbols>
+        <symbol>0</symbol>
+        <symbol>1</symbol>
+    </symbols>
+    <states>
+        <state accept="true">Q_1</state>
+        <state>Q_2</state>
+    </states>
+    <start-state>Q_1</start-state>
+    <transition-function>
+        <transition current-state="Q_1" current-symbol="0" next-state="Q_1"/>
+        <transition current-state="Q_1" current-symbol="1" next-state="Q_2"/>
+        <transition current-state="Q_2" current-symbol="0" next-state="Q_2"/>
+        <transition current-state="Q_2" current-symbol="1" next-state="Q_1"/>
+    </transition-function>
+</dfa>

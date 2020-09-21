@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="colors">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="color" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="color">
+        <xs:alternative test="@name" type="NamedColor"/>
+        <xs:alternative test="@r and @g and @b" type="RGBColor"/>
+    </xs:element>
+
+    <xs:complexType name="NamedColor">
+        <xs:attribute name="name" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="black"/>
+                    <xs:enumeration value="blue"/>
+                    <xs:enumeration value="green"/>
+                    <xs:enumeration value="red"/>
+                    <xs:enumeration value="yellow"/>
+                    <xs:enumeration value="white"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+
+    <xs:complexType name="RGBColor">
+        <xs:attribute name="r" type="xs:unsignedByte" use="required"/>
+        <xs:attribute name="g" type="xs:unsignedByte" use="required"/>
+        <xs:attribute name="b" type="xs:unsignedByte" use="required"/>
+    </xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<Publications>
+
+    <Publication type="Book">
+        <title>A prágai temető</title>
+        <publisher>Európa Könyvkiadó</publisher>
+        <isbn>9789630793735</isbn>
+    </Publication>
+
+    <Publication type="Periodical">
+        <title>Journal of Statistical Software</title>
+        <publisher>American Statistical Association</publisher>
+        <issn>1548-7660</issn>
+    </Publication>
+
+    <Publication type="Book">
+        <title>World War Z &#8211; Zombiháború</title>
+        <publisher>Könyvmolyképző Kiadó</publisher>
+        <isbn>9789632452753</isbn>
+    </Publication>
+
+</Publications>

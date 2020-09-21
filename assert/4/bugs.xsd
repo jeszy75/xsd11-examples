@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="bugs">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="bug" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="bug">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="submit-date" type="xs:dateTime"/>
+                <xs:element name="description" type="xs:string"/>
+                <xs:element name="close-date" type="xs:dateTime" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="status" use="required">
+                <xs:simpleType>
+                    <xs:restriction base="xs:token">
+                        <xs:enumeration value="open"/>
+                        <xs:enumeration value="closed"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+            <xs:assert test="if (@status = 'open') then not(close-date) else if (@status = 'closed') then close-date else false()"/>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

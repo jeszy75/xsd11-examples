@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="book">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="author" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+                <xs:element name="title" type="xs:string"/>
+                <xs:element name="isbn" type="isbn"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="isbn">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{9}[\dX]"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" defaultAttributes="commonAttributes">
+
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace"
+        schemaLocation="http://www.w3.org/2001/xml.xsd"/>
+
+    <xs:attributeGroup name="commonAttributes">
+        <xs:attribute ref="xml:lang" use="optional"/>
+    </xs:attributeGroup>
+
+    <xs:element name="text">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="para" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="para">
+        <xs:complexType mixed="true">
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element ref="emoticon"/>
+                <xs:element ref="link"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="emoticon">
+        <xs:complexType defaultAttributesApply="false">
+            <xs:attribute name="name" type="xs:token" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="link">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute name="uri" type="xs:anyURI" use="required"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

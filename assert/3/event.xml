@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<event name="coin flipping">
+    <outcome p="0.5">HEAD</outcome>
+    <outcome p="0.5">TAIL</outcome>
+</event>

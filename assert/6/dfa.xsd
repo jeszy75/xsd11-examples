@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="dfa">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="symbols"/>
+                <xs:element ref="states"/>
+                <xs:element name="start-state" type="xs:token"/>
+                <xs:element ref="transition-function"/>
+            </xs:sequence>
+            <xs:assert test="every $symbol in symbols/symbol satisfies
+                every $state in states/state satisfies
+                some $t in transition-function/transition satisfies $t/@current-symbol eq $symbol and $t/@current-state eq $state"/>
+        </xs:complexType>
+        <xs:keyref refer="state-key" name="start-state-keyref">
+            <xs:selector xpath="start-state"/>
+            <xs:field xpath="."/>
+        </xs:keyref>
+        <xs:keyref refer="state-key" name="current-state-keyref">
+            <xs:selector xpath="transition-function/transition"/>
+            <xs:field xpath="@current-state"/>
+        </xs:keyref>
+        <xs:keyref refer="symbol-key" name="current-symbol-keyref">
+            <xs:selector xpath="transition-function/transition"/>
+            <xs:field xpath="@current-symbol"/>
+        </xs:keyref>
+        <xs:keyref refer="state-key" name="next-state-keyref">
+            <xs:selector xpath="transition-function/transition"/>
+            <xs:field xpath="@next-state"/>
+        </xs:keyref>
+    </xs:element>
+
+    <xs:element name="symbols">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="symbol" type="xs:token" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+        <xs:key name="symbol-key">
+            <xs:selector xpath="symbol"/>
+            <xs:field xpath="."/>
+        </xs:key>
+    </xs:element>
+
+    <xs:element name="states">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="state" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:token">
+                                <xs:attribute name="accept" type="xs:boolean" use="optional"
+                                    default="false"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:assert test="count(state[@accept eq true()]) > 0"/>
+        </xs:complexType>
+        <xs:key name="state-key">
+            <xs:selector xpath="state"/>
+            <xs:field xpath="."/>
+        </xs:key>
+    </xs:element>
+
+    <xs:element name="transition-function">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="transition" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:attribute name="current-state" type="xs:token" use="required"/>
+                        <xs:attribute name="current-symbol" type="xs:token" use="required"/>
+                        <xs:attribute name="next-state" type="xs:token" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+        <xs:key name="transition-key">
+            <xs:selector xpath="transition"/>
+            <xs:field xpath="@current-state"/>
+            <xs:field xpath="@current-symbol"/>
+        </xs:key>
+    </xs:element>
+
+</xs:schema>

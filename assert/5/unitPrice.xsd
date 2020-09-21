@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="unitPrice">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="moneyAmount">
+                    <xs:attribute name="currency" type="xs:token" use="required"/>
+                    <!-- Nem működik! -->
+                    <xs:assert test="@currency = doc('currencylist.xml')//currency"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="moneyAmount">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0"/>
+            <xs:fractionDigits value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="event">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="outcome" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:token" use="required"/>
+            <xs:assert test="sum(outcome/@p) eq 1"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="outcome">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:token">
+                    <xs:attribute name="p" type="probability" use="required"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="probability">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

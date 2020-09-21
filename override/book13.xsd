@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:override schemaLocation="book10.xsd">
+        <xs:simpleType name="isbn">
+            <xs:restriction base="xs:string">
+                <xs:pattern value="\d{13}"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:override>
+
+</xs:schema>

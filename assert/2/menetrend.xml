@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- forrás: http://www.dkv.hu/hu/menetrend/tram/1 -->
+<járat szám="1">
+    <megállóhely menetidő="0">Nagyállomás</megállóhely>
+    <megállóhely menetidő="1">Vásáry István utca</megállóhely>
+    <megállóhely menetidő="3">Szent Anna utca</megállóhely>
+    <megállóhely menetidő="4">Városháza</megállóhely>
+    <megállóhely menetidő="6">Kossuth tér</megállóhely>
+    <megállóhely menetidő="8">Kálvin tér</megállóhely>
+    <megállóhely menetidő="10">Eötvös utca</megállóhely>
+    <megállóhely menetidő="12">Bem tér</megállóhely>
+    <megállóhely menetidő="13">Weszprémi utca</megállóhely>
+    <megállóhely menetidő="14">Nagyerdei körút</megállóhely>
+    <megállóhely menetidő="16">Aquaticum</megállóhely>
+    <megállóhely menetidő="18">Klinikák</megállóhely>
+    <megállóhely menetidő="20">Egyetem</megállóhely>
+    <megállóhely menetidő="22">Medgyessy sétány</megállóhely>
+    <megállóhely menetidő="23">Andaházi utca</megállóhely>
+    <megállóhely menetidő="25">Bem tér</megállóhely>
+    <megállóhely menetidő="26">Honvéd utca</megállóhely>
+    <megállóhely menetidő="27">Kálvin tér</megállóhely>
+    <megállóhely menetidő="29">Kossuth tér</megállóhely>
+    <megállóhely menetidő="31">Városháza</megállóhely>
+    <megállóhely menetidő="34">Szent Anna utca</megállóhely>
+    <megállóhely menetidő="35">Vásáry István utca</megállóhely>
+    <megállóhely menetidő="38">Nagyállomás</megállóhely>
+</járat>

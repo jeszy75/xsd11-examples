@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<!--
+    <xs:simpleType name="oddInteger">
+        <xs:restriction base="xs:integer">
+            <xs:pattern value=".*[13579]"/>
+        </xs:restriction>
+    </xs:simpleType>
+-->
+
+    <xs:simpleType name="oddInteger">
+        <xs:restriction base="xs:integer">
+            <xs:assertion test="abs($value mod 2) eq 1"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="oddInteger" type="oddInteger"/>
+
+</xs:schema>

@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="Publications">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Publication" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Publication" type="AbstractPublication">
+        <xs:alternative test="@type = 'Book'" type="Book"/>
+        <xs:alternative test="@type = 'Periodical'" type="Periodical"/>
+    </xs:element>
+
+    <xs:complexType name="AbstractPublication" abstract="true">
+        <xs:sequence>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="publisher" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="type">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="Book"/>
+                    <xs:enumeration value="Periodical"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+
+    <xs:complexType name="Book">
+        <xs:complexContent>
+            <xs:extension base="AbstractPublication">
+                <xs:sequence>
+                    <xs:element name="isbn" type="isbn"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="Periodical">
+        <xs:complexContent>
+            <xs:extension base="AbstractPublication">
+                <xs:sequence>
+                    <xs:element name="issn" type="issn"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:simpleType name="isbn">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{13}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="issn">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{4}-\d{3}[\dX]"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
