@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <start>
+    <element name="bugs">
+      <zeroOrMore>
+        <element name="bug">
+          <element name="submit-date">
+            <data type="dateTime"/>
+          </element>
+          <element name="description">
+            <text/>
+          </element>
+          <optional>
+            <element name="close-date">
+              <data type="dateTime"/>
+            </element>
+          </optional>
+          <choice>
+            <attribute name="status">
+              <value>open</value>
+            </attribute>
+            <group>
+              <attribute name="status">
+                <value>closed</value>
+              </attribute>
+              <element name="close-date">
+                <data type="dateTime"/>
+              </element>
+            </group>
+          </choice>
+        </element>
+      </zeroOrMore>
+    </element>
+  </start>
+</grammar>

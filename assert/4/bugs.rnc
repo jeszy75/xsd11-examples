@@ -1,0 +1,11 @@
+start =
+    element bugs {
+        element bug {
+            element submit-date { xsd:dateTime },
+            element description { text },
+            element close-date { xsd:dateTime }?,
+            (attribute status { "open" }
+             | (attribute status { "closed" },
+                element close-date { xsd:dateTime }))
+        }*
+    }
