@@ -1,0 +1,11 @@
+start = colors
+colors = element colors { color+ }
+color =
+  element color {
+    attribute name {
+      "black" | "blue" | "green" | "red" | "yellow" | "white"
+    }
+    | (attribute r { xsd:unsignedByte },
+       attribute g { xsd:unsignedByte },
+       attribute b { xsd:unsignedByte })
+  }
