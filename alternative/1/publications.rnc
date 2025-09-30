@@ -1,0 +1,19 @@
+start = Publications
+Publications = element Publications { Publication* }
+Publication =
+  element Publication {
+    element title { text },
+    element publisher { text },
+    ((attribute type { "Book" },
+      isbn)
+     | (attribute type { "Periodical" },
+        issn))
+  }
+isbn =
+  element isbn {
+    xsd:string { pattern = "\d{13}" }
+  }
+issn =
+  element issn {
+    xsd:string { pattern = "\d{4}-\d{3}[\dX]" }
+  }
